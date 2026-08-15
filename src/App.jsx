@@ -192,18 +192,13 @@ export default function App() {
           font-size: 13px; letter-spacing: 0.03em; padding: 10px 16px;
         }
 
-        /* ---------- Navbar (pill style) ---------- */
-        .navbar{ padding: 18px 24px; position: sticky; top: 0; z-index: 50; background: var(--white); }
+        /* ---------- Navbar (logo left / links center / buttons right) ---------- */
+        .navbar{ padding: 22px 24px 10px; position: sticky; top: 0; z-index: 50; background: var(--white); }
         .navbar-pill{
           max-width: 1180px; margin: 0 auto;
-          display:flex; align-items:center; justify-content:space-between;
-          background: var(--white);
-          border: 1px solid rgba(61,36,72,0.08);
-          border-radius: 999px;
-          padding: 10px 12px 10px 20px;
-          box-shadow: 0 8px 24px rgba(61,36,72,0.06);
+          display:grid; grid-template-columns: 1fr auto 1fr; align-items:center; gap: 16px;
         }
-        .nav-links{ display:flex; align-items:center; gap: 28px; }
+        .nav-links{ display:flex; align-items:center; justify-content:center; gap: 30px; }
         .nav-links a{ font-size: 14px; font-weight: 600; color: var(--ink); transition: color 0.2s ease; }
         .nav-links a:hover{ color: var(--purple); }
         .brand-block{ display:flex; align-items:center; gap: 10px; }
@@ -238,63 +233,99 @@ export default function App() {
         .nav-mobile{ display:none; }
 
         /* ---------- Hero ---------- */
-        .hero{ padding: 60px 0 40px; position: relative; }
-        .hero-top-badges{
-          display:flex; justify-content:flex-end; gap: 10px; margin-bottom: 28px;
-        }
+        .hero{ padding: 48px 0 0; position: relative; }
         .pill-tag{
           font-size: 11.5px; font-weight: 700; letter-spacing: 0.03em;
           background: var(--lavender-light); color: var(--purple);
           padding: 7px 16px; border-radius: 999px;
         }
         .pill-tag.dark{ background: var(--ink); color: var(--white); }
+        .hero-badge{
+          display:flex; justify-content:center; margin-bottom: 26px;
+        }
+        .hero-badge-pill{
+          display:inline-flex; align-items:center; gap: 10px;
+          background: var(--lavender-light); border-radius: 999px; padding: 6px 8px 6px 6px;
+          font-size: 12.5px; font-weight: 600; color: var(--ink);
+        }
+        .hero-badge-pill .chip{
+          background: var(--gold); color: var(--white); font-weight: 700; font-size: 11px;
+          padding: 5px 12px; border-radius: 999px;
+        }
         .hero-headline{
-          text-align:center; max-width: 880px; margin: 0 auto; position: relative;
+          text-align:center; max-width: 780px; margin: 0 auto; position: relative;
         }
         .hero-headline h1{
-          font-size: clamp(34px, 6vw, 62px); line-height: 1.08; color: var(--ink);
+          font-size: clamp(34px, 6vw, 58px); line-height: 1.1; color: var(--ink); font-weight: 700;
         }
         .hero-highlight{
           display:inline-flex; align-items:center; justify-content:center;
           background: var(--gold); color: var(--white);
-          border-radius: 999px; padding: 4px 26px; margin: 0 4px;
+          border-radius: 999px; padding: 2px 24px; margin: 0 2px;
           font-style: italic;
-          transform: translateY(-4px);
         }
         .hero-desc{
-          margin: 26px auto 0; font-size: 17px; color: var(--text-secondary); max-width: 520px; text-align:center;
+          margin: 22px auto 0; font-size: 16px; color: var(--text-secondary); max-width: 500px; text-align:center;
         }
-        .hero-row{
-          margin-top: 40px; display:flex; align-items:center; justify-content:space-between; gap: 24px; flex-wrap: wrap;
+        .hero-cta-row{
+          margin-top: 30px; display:flex; justify-content:center; gap: 10px; flex-wrap: wrap;
         }
-        .hero-stats{ font-size: 13.5px; color: var(--ink); line-height: 1.7; }
-        .hero-stats b{ font-family:'Fraunces', serif; font-size: 15px; }
-        .hero-ctas{ display:flex; gap: 12px; flex-wrap: wrap; }
+        .hero-note{
+          margin-top: 14px; text-align:center; font-size: 12px; color: var(--text-secondary);
+        }
+        .hero-trust-row{
+          margin-top: 18px; display:flex; justify-content:center; align-items:center; gap: 10px;
+          font-size: 12.5px; color: var(--ink); font-weight: 600;
+        }
+        .trust-dots{ display:flex; }
+        .trust-dots span{
+          width: 26px; height: 26px; border-radius: 50%; background: var(--lavender);
+          border: 2px solid var(--white); margin-left: -8px; display:inline-block;
+        }
+        .trust-dots span:first-child{ margin-left: 0; }
         .hero-deco-1{ top: 6px; left: 4%; }
-        .hero-deco-2{ top: 90px; right: 6%; }
+        .hero-deco-2{ top: 40px; right: 6%; }
         .hero-deco-3{ bottom: 20px; left: 10%; }
 
-        /* Category row */
-        .cat-row-wrap{
-          margin-top: 48px; display:flex; align-items:center; gap: 16px;
+        /* Hero visual on gradient panel */
+        .hero-visual-wrap{ margin-top: 52px; position: relative; }
+        .hero-gradient-panel{
+          background: linear-gradient(180deg, var(--lavender-light) 0%, var(--lavender) 55%, var(--gold) 150%);
+          border-radius: 36px;
+          height: 200px;
+          margin: 0 -4px;
         }
-        .cat-row{
-          display:flex; gap: 16px; overflow-x: auto; scroll-snap-type: x proximity;
-          padding: 6px 2px 14px; flex: 1;
-          scrollbar-width: none;
+        .hero-mock-stack{
+          position: absolute; left: 50%; top: -80px; transform: translateX(-50%);
+          width: min(340px, 82vw);
         }
-        .cat-row::-webkit-scrollbar{ display:none; }
-        .cat-tile{
-          scroll-snap-align: start; flex-shrink: 0;
-          width: 116px; height: 116px; border-radius: 28px;
-          display:flex; align-items:center; justify-content:center; text-align:center;
-          padding: 14px; font-size: 12.5px; font-weight: 700; color: var(--ink);
-          box-shadow: 0 10px 22px rgba(61,36,72,0.08);
+        .hero-mock-card{
+          background: var(--white); border-radius: 26px; padding: 22px;
+          box-shadow: 0 30px 60px rgba(61,36,72,0.2); border: 1px solid rgba(61,36,72,0.06);
         }
-        .tile-gold{ background: var(--tile-gold); }
-        .tile-rose{ background: var(--tile-rose); }
-        .tile-teal{ background: var(--tile-teal); }
-        .tile-sky{ background: var(--tile-sky); }
+        .hero-mock-cover{
+          height: 200px; border-radius: 18px; background: linear-gradient(150deg, var(--ink), var(--purple));
+          display:flex; flex-direction:column; justify-content:space-between; padding: 20px; color: var(--white);
+        }
+        .hero-mock-cover span{ font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; }
+        .hero-mock-cover .title{ font-family:'Fraunces', serif; font-size: 22px; line-height: 1.2; }
+        .hero-mock-meta{ margin-top: 14px; display:flex; justify-content:space-between; font-size: 11.5px; color: var(--text-secondary); }
+        .hero-mock-badge{
+          position:absolute; top: -14px; right: -14px; background: var(--gold); color: var(--white);
+          font-size: 11px; font-weight: 800; padding: 8px 14px; border-radius: 999px;
+          box-shadow: 0 10px 20px rgba(199,168,91,0.4);
+        }
+
+        /* Format strip below hero */
+        .format-strip{
+          padding: 40px 0 0; text-align:center;
+        }
+        .format-strip p{ font-size: 13px; color: var(--text-secondary); margin-bottom: 20px; }
+        .format-row{ display:flex; justify-content:center; gap: 14px; flex-wrap: wrap; }
+        .format-chip{
+          font-size: 13px; font-weight: 700; color: var(--ink);
+          border: 1px solid rgba(61,36,72,0.12); border-radius: 999px; padding: 9px 20px;
+        }
 
         /* ---------- Section shared ---------- */
         section{ padding: 88px 0; }
@@ -550,48 +581,70 @@ export default function App() {
         {/* HERO */}
         <section className="hero" id="hero">
           <div className="wrap">
-            <div className="hero-top-badges">
-              <span className="pill-tag dark">SFR Kit™</span>
-              <span className="pill-tag">2026.01</span>
+            <div className="hero-badge">
+              <span className="hero-badge-pill">
+                <span className="chip">Baru</span>
+                Smart Financial Reset Kit™ →
+              </span>
             </div>
 
             <div className="hero-headline">
               <Sparkle className="hero-deco-1" size={22} />
               <Sparkle className="hero-deco-2" size={16} />
               <h1>
-                Reset keuanganmu dalam <span className="hero-highlight">30 hari</span><br />
-                meski penghasilan belum bertambah.
+                Reset Keuanganmu<br />
+                dalam <span className="hero-highlight">30 Hari</span>
               </h1>
               <p className="hero-desc">
                 Sistem langkah demi langkah untuk menghentikan kebocoran, menata budget,
-                membangun dana darurat, dan membuat keputusan keuangan dengan lebih tenang.
+                membangun dana darurat, dan membuat keputusan keuangan dengan lebih tenang —
+                meski penghasilan belum bertambah.
               </p>
             </div>
 
-            <div className="hero-row">
-              <div className="hero-stats">
-                Dengan lebih dari<br />
-                <b>90+ halaman</b> workbook<br />
-                <b>100+ AI prompts</b> keuangan
-              </div>
-              <div className="hero-ctas">
-                <a href="#cara-kerja" className="btn btn-secondary" onClick={(e) => handleNavClick(e, "#cara-kerja")}>
-                  Pelajari isinya ↓
-                </a>
-                <a href="#isi-paket" className="btn btn-dark" onClick={(e) => handleNavClick(e, "#isi-paket")}>
-                  Lihat Paket Lengkap →
-                </a>
-              </div>
+            <div className="hero-cta-row">
+              <a href="#penawaran" className="btn btn-primary" onClick={(e) => handleNavClick(e, "#penawaran")}>
+                Dapatkan Info Harga →
+              </a>
+              <a href="#isi-paket" className="btn btn-secondary" onClick={(e) => handleNavClick(e, "#isi-paket")}>
+                Lihat Isi Paket
+              </a>
+            </div>
+            <p className="hero-note">Notifikasi harga &amp; jadwal peluncuran dikirim saat pendaftaran dibuka.</p>
+
+            <div className="hero-trust-row">
+              <span className="trust-dots" aria-hidden="true">
+                <span style={{ background: "var(--tile-gold)" }} />
+                <span style={{ background: "var(--tile-rose)" }} />
+                <span style={{ background: "var(--tile-teal)" }} />
+              </span>
+              Dibuat khusus untuk perempuan &amp; keluarga Indonesia.
             </div>
 
-            <div className="cat-row-wrap">
-              <button className="arrow-btn" aria-label="Geser ke kiri" onClick={() => scrollCats(-1)}>←</button>
-              <div className="cat-row" ref={catRowRef}>
-                {quickCategories.map((c) => (
-                  <div key={c.label} className={`cat-tile tile-${c.tile}`}>{c.label}</div>
-                ))}
+            <div className="hero-visual-wrap">
+              <div className="hero-gradient-panel" aria-hidden="true" />
+              <div className="hero-mock-stack" aria-hidden="true">
+                <div className="hero-mock-badge">90+ hal.</div>
+                <div className="hero-mock-card">
+                  <div className="hero-mock-cover">
+                    <span>Workbook</span>
+                    <div className="title">Smart Financial<br />Reset Kit</div>
+                  </div>
+                  <div className="hero-mock-meta">
+                    <span>A4 · Bahasa Indonesia</span>
+                    <span>8 modul</span>
+                  </div>
+                </div>
               </div>
-              <button className="arrow-btn" aria-label="Geser ke kanan" onClick={() => scrollCats(1)}>→</button>
+            </div>
+          </div>
+
+          <div className="format-strip wrap">
+            <p>Tersedia dalam format</p>
+            <div className="format-row">
+              {["PDF", "DOCX", "XLSX", "Google Sheets"].map((f) => (
+                <span className="format-chip" key={f}>{f}</span>
+              ))}
             </div>
           </div>
         </section>
