@@ -785,13 +785,12 @@ export default function App() {
         <section className="editorial-section" id="tentang">
           <div className="wrap editorial-grid">
             <div className="photo-frame">
-              <img src="" alt="Perempuan profesional dalam suasana hangat" loading="lazy" style={{ display: "none" }} />
-              <div className="placeholder-note">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
-                  <rect x="3" y="4" width="18" height="16" rx="2" /><circle cx="9" cy="10" r="2" /><path d="M21 16l-5-5-4 4-3-3-5 5" />
-                </svg>
-                <span>Ruang untuk foto perempuan (portrait 3:4) — belum dilampirkan pada permintaan ini.</span>
-              </div>
+              <img
+                src="/perempuan-profesional.png"
+                alt="Perempuan profesional dalam suasana hangat"
+                loading="lazy"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
             </div>
             <div>
               <span className="kicker soft">Keuangan yang terasa manusiawi</span>
