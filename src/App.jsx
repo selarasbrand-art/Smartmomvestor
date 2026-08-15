@@ -354,4 +354,517 @@ export default function App() {
         .module-top{ display:flex; align-items:center; justify-content:space-between; }
         .module-icon-badge{ width: 42px; height: 42px; border-radius: 14px; display:flex; align-items:center; justify-content:center; font-size: 14px; font-weight: 800; color: var(--ink); }
         .module-arrow{ width: 30px; height: 30px; border-radius: 50%; display:flex; align-items:center; justify-content:center; background: rgba(61,36,72,0.06); font-size: 13px; }
-        .module-card.featured .module-arrow{ background: rgba(255,255,255,0.2); 
+        .module-card.featured .module-arrow{ background: rgba(255,255,255,0.2); color: var(--white); }
+        .module-card h3{ font-size: 18px; line-height: 1.3; }
+        .module-card p{ font-size: 13.5px; color: var(--text-secondary); }
+        .module-card.featured p{ color: rgba(255,253,251,0.85); }
+        .module-visual{ margin-top: auto; height: 86px; border-radius: var(--r-sm); display:flex; align-items:center; justify-content:center; font-family:'Fraunces', serif; font-style: italic; font-size: 26px; color: var(--ink); }
+        .paket-footer{ display:flex; align-items:center; justify-content:center; gap: 20px; margin-top: 36px; }
+        .dots{ display:flex; gap: 8px; }
+        .dot{ width: 8px; height: 8px; border-radius: 50%; background: rgba(61,36,72,0.2); border:none; padding:0; cursor:pointer; }
+        .dot.active{ background: var(--accent); width: 24px; border-radius: 999px; transition: width 0.2s ease; }
+
+        /* ---------- Cara kerja (roadmap) ---------- */
+        .cara-kerja-grid{ display:grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items:start; }
+        .outcome-list{ margin-top: 28px; display:flex; flex-direction:column; gap: 15px; }
+        .outcome-item{ display:flex; align-items:flex-start; gap: 12px; font-size: 14.5px; color: var(--ink); }
+        .outcome-check{ width: 23px; height: 23px; border-radius: 50%; background: var(--accent-light); color: var(--accent-dark); display:flex; align-items:center; justify-content:center; font-size: 12px; flex-shrink: 0; margin-top: 1px; font-weight:700; }
+        .roadmap{ position: relative; padding-left: 28px; }
+        .roadmap::before{ content:""; position:absolute; left: 5px; top: 6px; bottom: 6px; width: 1.5px; background: var(--lavender); }
+        .roadmap-item{ position: relative; padding-bottom: 32px; }
+        .roadmap-item:last-child{ padding-bottom: 0; }
+        .roadmap-item::before{ content:""; position:absolute; left: -28px; top: 4px; width: 13px; height: 13px; border-radius: 50%; background: var(--white); border: 2.5px solid var(--accent); }
+        .roadmap-range{ font-size: 11.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gold); }
+        .roadmap-verb{ font-family:'Fraunces', serif; font-size: 20px; color: var(--ink); margin: 5px 0; }
+        .roadmap-body{ font-size: 14px; color: var(--text-secondary); }
+
+        /* ---------- Dark CTA banner (3 steps) ---------- */
+        .steps-banner{ background: linear-gradient(135deg, var(--ink) 0%, var(--accent-dark) 130%); border-radius: 40px; padding: 56px 40px; color: var(--white); }
+        .steps-grid{ display:grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items:center; }
+        .balance-card{ background: rgba(0,0,0,0.28); border: 1px solid rgba(255,255,255,0.12); border-radius: 28px; padding: 30px; }
+        .balance-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom: 40px; }
+        .balance-pill{ font-size: 11.5px; font-weight: 700; background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 999px; }
+        .balance-label{ font-size: 12.5px; color: rgba(255,253,251,0.6); margin-bottom: 8px; }
+        .balance-value{ font-family:'Fraunces', serif; font-size: 30px; }
+        .balance-actions{ margin-top: 28px; display:flex; gap: 10px; }
+        .balance-btn{ flex:1; text-align:center; padding: 11px; border-radius: 999px; background: rgba(255,255,255,0.1); font-size: 12.5px; font-weight: 600; }
+        .balance-btn.accent{ background: var(--accent); }
+        .steps-copy h2{ color: var(--white); font-size: clamp(24px, 3vw, 34px); }
+        .steps-list{ margin-top: 30px; display:flex; flex-direction:column; gap: 22px; }
+        .step-row{ display:flex; gap: 16px; align-items:flex-start; }
+        .step-icon{ width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.12); display:flex; align-items:center; justify-content:center; font-size: 15px; flex-shrink: 0; }
+        .step-row h4{ font-family:'Fraunces', serif; font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+        .step-row p{ font-size: 13.5px; color: rgba(255,253,251,0.68); }
+
+        /* ---------- Bonus ---------- */
+        .bonus-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .bonus-card{ border-radius: var(--r-md); padding: 28px; background: var(--white); border: 1px solid rgba(61,36,72,0.08); }
+        .bonus-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom: 14px; }
+        .bonus-icon{ width: 44px; height: 44px; border-radius: 14px; display:flex; align-items:center; justify-content:center; font-family:'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--ink); }
+        .bonus-format{ font-size: 11px; font-weight: 700; color: var(--accent-dark); background: var(--accent-light); padding: 5px 12px; border-radius: 999px; }
+        .bonus-card h3{ font-size: 18px; color: var(--ink); margin-bottom: 8px; }
+        .bonus-card p{ font-size: 13.5px; color: var(--text-secondary); }
+
+        /* ---------- Package details ---------- */
+        .package-section{ background: var(--ink); color: var(--white); border-radius: var(--r-lg); padding: 64px 44px; max-width: 1180px; margin: 0 auto; }
+        .package-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items:center; }
+        .package-list li{ list-style:none; display:flex; align-items:center; gap: 12px; padding: 14px 0; border-bottom: 1px solid rgba(255,253,251,0.1); font-size: 14.5px; color: rgba(255,253,251,0.92); }
+        .package-list li:last-child{ border-bottom: none; }
+        .package-bullet{ width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+        .package-note{ margin-top: 18px; font-size: 12.5px; color: rgba(255,253,251,0.55); }
+        .package-visual{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .pv-tile{ border-radius: var(--r-sm); padding: 20px; height: 130px; display:flex; flex-direction:column; justify-content:space-between; }
+        .pv-tile span{ font-size: 10px; letter-spacing: 0.06em; text-transform:uppercase; opacity: 0.8; }
+        .pv-tile b{ font-family:'Fraunces', serif; font-size: 15px; font-weight: 600; }
+
+        /* ---------- Editorial photo ---------- */
+        .editorial-section{ background: var(--cream); }
+        .editorial-grid{ display:grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items:center; }
+        .photo-frame{ position: relative; border-radius: var(--r-lg); box-shadow: 0 24px 48px rgba(61,36,72,0.14); aspect-ratio: 3 / 4; overflow: hidden; background: linear-gradient(155deg, var(--lavender-light), var(--lavender)); }
+        .photo-frame .placeholder-note{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap: 10px; padding: 32px; text-align:center; color: var(--accent-dark); }
+        .placeholder-note span{ font-size: 12.5px; color: var(--text-secondary); max-width: 220px; }
+        .editorial-quote{ margin-top: 26px; font-family:'Fraunces', serif; font-style: italic; font-size: 18px; color: var(--accent-dark); border-left: 3px solid var(--accent); padding-left: 18px; }
+
+        /* ---------- Offer / Pricing ---------- */
+        .offer-section{ background: var(--lavender-light); }
+        .offer-layout{ display:grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items:center; }
+        .offer-benefits{ margin-top: 24px; display:flex; flex-direction:column; gap: 12px; }
+        .offer-card{ background: var(--white); border-radius: var(--r-lg); padding: 42px; box-shadow: 0 24px 56px rgba(61,36,72,0.14); text-align:center; }
+        .offer-card h3{ font-size: 25px; color: var(--ink); }
+        .offer-card .offer-sub{ margin-top: 8px; font-size: 13.5px; color: var(--text-secondary); }
+        .offer-price-row{ margin: 26px 0 8px; padding: 18px 0; border-top: 1px dashed rgba(61,36,72,0.15); border-bottom: 1px dashed rgba(61,36,72,0.15); }
+        .offer-price-label{ font-size: 11.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+        .offer-price-value{ font-family:'Fraunces', serif; font-size: 22px; color: var(--ink); margin-top: 6px; }
+        .offer-card .btn{ width: 100%; margin-top: 18px; }
+        .offer-footnote{ margin-top: 14px; font-size: 11.5px; color: var(--text-secondary); }
+
+        /* ---------- FAQ ---------- */
+        .faq-list{ max-width: 720px; margin: 0 auto; }
+        .faq-item{ border-bottom: 1px solid rgba(61,36,72,0.12); }
+        .faq-question{ width: 100%; display:flex; align-items:center; justify-content:space-between; gap: 20px; background: none; border: none; padding: 24px 4px; text-align:left; font-size: 15.5px; font-weight: 700; color: var(--ink); }
+        .faq-icon{ font-family:'Fraunces', serif; font-size: 20px; color: var(--accent); flex-shrink:0; width: 22px; text-align:center; }
+        .faq-answer-wrap{ overflow:hidden; transition: max-height 0.35s ease; }
+        .faq-answer{ font-size: 14px; color: var(--text-secondary); padding: 0 4px 24px; max-width: 620px; }
+        .faq-item.open .faq-question{ color: var(--accent-dark); }
+
+        footer{ padding: 40px 0 44px; border-top: 1px solid rgba(61,36,72,0.08); margin-top: 20px; }
+        .footer-bottom{ display:flex; justify-content:space-between; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--text-secondary); }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 960px){
+          .hero-grid, .cara-kerja-grid, .package-grid, .editorial-grid, .offer-layout, .steps-grid, .features-head{ grid-template-columns: 1fr; }
+          .features-head .side-note{ text-align:left; }
+          .features-grid{ grid-template-columns: 1fr 1fr; }
+          .feature-illustration{ grid-column: span 2; min-height: 220px; }
+          .module-grid{ grid-template-columns: 1fr; }
+          .problem-grid{ grid-template-columns: 1fr; }
+          .bonus-grid{ grid-template-columns: 1fr; }
+          .nav-links{ display:none; }
+          .menu-toggle{ display:block; }
+          section{ padding: 64px 0; }
+          .hero{ padding: 28px 0 56px; }
+          .hero-visual{ height: 320px; order: -1; }
+          .paket-card{ padding: 34px 22px; border-radius: 28px; }
+          .paket-head p{ text-align:left; }
+          .package-section{ padding: 44px 22px; border-radius: 28px; }
+          .package-visual{ grid-template-columns: 1fr; }
+          .steps-banner{ padding: 40px 22px; border-radius: 28px; }
+        }
+        @media (max-width: 960px){
+          .navbar{ padding: 18px 16px 8px; }
+          .nav-mobile{ display:flex; flex-direction:column; gap: 2px; margin-top: 14px; background: var(--lavender-light); border-radius: 20px; padding: 8px; }
+          .nav-mobile a{ padding: 12px 14px; font-size: 14.5px; font-weight: 600; border-radius: 12px; }
+          .nav-mobile a:active{ background: var(--white); }
+        }
+        @media (max-width: 560px){
+          .brand-name{ font-size: 15px; }
+          .hero-desc{ max-width: 100%; }
+          .format-row{ gap: 20px; }
+        }
+      `}</style>
+
+      <div className="announce">30-Day Financial Reset • Dibuat untuk keluarga dan perempuan Indonesia</div>
+
+      <header className="navbar">
+        <div className="navbar-inner">
+          <div className="brand-block">
+            <div className="brand-mark" aria-hidden="true">S</div>
+            <span className="brand-name">SmartMomVestor</span>
+          </div>
+          <nav className="nav-links" aria-label="Navigasi utama">
+            {navLinks.map((n) => (
+              <a key={n.href} href={n.href} onClick={(e) => handleNavClick(e, n.href)}>{n.label}</a>
+            ))}
+          </nav>
+          <div className="nav-actions">
+            <a href="#faq" className="btn btn-secondary btn-small" onClick={(e) => handleNavClick(e, "#faq")}>FAQ</a>
+            <a href="#penawaran" className="btn btn-primary btn-small" onClick={(e) => handleNavClick(e, "#penawaran")}>Dapatkan Paket</a>
+            <button className="menu-toggle" aria-label="Buka menu" aria-expanded={menuOpen} onClick={() => setMenuOpen((v) => !v)}>
+              {menuOpen ? "✕" : "☰"}
+            </button>
+          </div>
+        </div>
+        {menuOpen && (
+          <div className="wrap">
+            <div className="nav-mobile">
+              {navLinks.map((n) => (
+                <a key={n.href} href={n.href} onClick={(e) => handleNavClick(e, n.href)}>{n.label}</a>
+              ))}
+            </div>
+          </div>
+        )}
+      </header>
+
+      <main>
+        {/* HERO */}
+        <section className="hero" id="hero">
+          <div className="wrap hero-grid">
+            <div className="hero-copy">
+              <span className="hero-eyebrow">Smart Financial Reset Kit™</span>
+              <h1>
+                Teman lebih <span className="accent-word">cerdas</span> untuk<br />
+                mengambil keputusan finansial.
+              </h1>
+              <p className="hero-desc">
+                Sistem langkah demi langkah untuk menghentikan kebocoran, menata budget,
+                membangun dana darurat, dan reset keuanganmu dalam 30 hari — meski
+                penghasilan belum bertambah.
+              </p>
+              <div className="hero-ctas">
+                <a href="#penawaran" className="btn btn-primary" onClick={(e) => handleNavClick(e, "#penawaran")}>
+                  Dapatkan Info Harga →
+                </a>
+                <a href="#cara-kerja" className="btn btn-secondary" onClick={(e) => handleNavClick(e, "#cara-kerja")}>
+                  Lihat Cara Kerja
+                </a>
+              </div>
+              <p className="hero-note">Notifikasi harga &amp; jadwal peluncuran dikirim saat pendaftaran dibuka.</p>
+              <hr className="hero-divider" />
+              <div className="hero-tags">
+                {heroTags.map((t) => <span className="hero-tag" key={t}>{t}</span>)}
+              </div>
+            </div>
+
+            <div className="hero-visual" aria-hidden="true">
+              <div className="hero-ring r1" />
+              <div className="hero-ring r2" />
+              <div className="hero-card hero-card-back">
+                <span>Dashboard</span>
+                <div className="hc-title">Budget &amp; Cashflow</div>
+                <div className="hc-bottom"><span>DEMO</span><span>2026</span></div>
+              </div>
+              <div className="hero-card hero-card-front">
+                <span>Workbook</span>
+                <div className="hc-title">Smart Financial<br />Reset Kit</div>
+                <div className="hc-bottom"><span>90+ hal.</span><span>A4</span></div>
+              </div>
+              <div className="hero-stat-card">
+                <div className="label">Progress modul</div>
+                <div className="hero-stat-bars">
+                  <span style={{ height: "40%" }} /><span style={{ height: "70%" }} />
+                  <span style={{ height: "55%" }} /><span style={{ height: "90%" }} />
+                  <span style={{ height: "65%" }} />
+                </div>
+              </div>
+              <div className="hero-badge-float">✓</div>
+            </div>
+          </div>
+
+          <div className="format-strip wrap" style={{ marginTop: 64 }}>
+            <p>Tersedia dalam format</p>
+            <div className="format-row">
+              {["PDF", "DOCX", "XLSX", "Google Sheets"].map((f) => (
+                <span className="format-chip" key={f}>{f}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FEATURES */}
+        <section id="fitur">
+          <div className="wrap">
+            <span className="kicker soft">Fitur</span>
+            <div className="features-head">
+              <h2>
+                Capai <span className="accent-word">kejelasan finansial</span> dan kendalikan
+                masa depanmu dengan alat yang dirancang untuk menyederhanakan pengelolaan uang.
+              </h2>
+              <p className="side-note">Semua yang kamu butuhkan, tanpa yang berlebihan.</p>
+            </div>
+            <div className="features-grid">
+              <div className="feature-illustration">
+                <span className="ghost-mark">S</span>
+              </div>
+              {featureCards.map((f) => (
+                <div className={`feature-card fc-${f.tile}`} key={f.title}>
+                  <span className="ghost">{f.ghost}</span>
+                  <h3>{f.title}</h3>
+                  <p>{f.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* PROBLEM SECTION */}
+        <section id="masalah" style={{ background: "var(--cream)" }}>
+          <div className="wrap">
+            <div className="section-head">
+              <span className="kicker soft">Bukan soal kurang disiplin</span>
+              <h2>Kamu mungkin hanya belum punya sistem yang jelas.</h2>
+              <p className="section-desc">
+                Informasi finansial ada di mana-mana. Yang sering hilang adalah urutan: mulai
+                dari mana, kerjakan apa, dan bagaimana tahu bahwa kita bergerak maju.
+              </p>
+            </div>
+            <div className="problem-grid">
+              {problemCards.map((c) => (
+                <div className="problem-card" key={c.title} style={{ background: `var(--tile-${c.tile})` }}>
+                  <h3>{c.title}</h3>
+                  <p>{c.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ISI PAKET — carousel */}
+        <section id="isi-paket">
+          <div className="wrap">
+            <div className="paket-card">
+              <div className="paket-head">
+                <div>
+                  <span className="kicker soft">Delapan modul utama</span>
+                  <h2>Satu perjalanan utuh dari<br />bingung menjadi lebih terarah.</h2>
+                </div>
+                <p>
+                  Setiap modul punya tujuan, worksheet, pertanyaan refleksi, dan tindakan nyata
+                  yang akan diajarkan dalam Smart Financial Reset Kit.
+                </p>
+              </div>
+              <div className="module-grid">
+                {modPages[modPage].map((m, i) => (
+                  <div className={`module-card ${i === 1 ? "featured" : ""}`} key={m.num}>
+                    <div className="module-top">
+                      <div className="module-icon-badge" style={{ background: i === 1 ? "rgba(255,255,255,0.18)" : `var(--tile-${m.tile})`, color: i === 1 ? "#fff" : "var(--ink)" }}>
+                        {m.num}
+                      </div>
+                      <div className="module-arrow">↗</div>
+                    </div>
+                    <h3>{m.title}</h3>
+                    <p>{m.body}</p>
+                    <div className="module-visual" style={{ background: i === 1 ? "rgba(255,255,255,0.12)" : `var(--tile-${m.tile})`, color: i === 1 ? "#fff" : "var(--ink)" }}>
+                      {m.num}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="paket-footer">
+                <button className="arrow-btn" aria-label="Modul sebelumnya" onClick={() => setModPage((p) => Math.max(0, p - 1))}>←</button>
+                <div className="dots">
+                  {modPages.map((_, i) => (
+                    <button key={i} className={`dot ${i === modPage ? "active" : ""}`} aria-label={`Halaman modul ${i + 1}`} onClick={() => setModPage(i)} />
+                  ))}
+                </div>
+                <button className="arrow-btn" aria-label="Modul berikutnya" onClick={() => setModPage((p) => Math.min(modPages.length - 1, p + 1))}>→</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CARA KERJA & HASIL */}
+        <section id="cara-kerja">
+          <div className="wrap cara-kerja-grid">
+            <div>
+              <span className="kicker soft">Cara kerja &amp; hasil</span>
+              <h2 style={{ fontSize: "clamp(24px, 3vw, 34px)" }}>Bukan sekadar selesai mengisi workbook.</h2>
+              <p className="section-desc" style={{ marginTop: 14 }}>
+                Target akhirnya adalah sistem keuangan yang bisa kamu ulang setiap
+                bulan—bahkan setelah challenge 30 hari berakhir.
+              </p>
+              <div className="outcome-list">
+                {outcomes.map((o) => (
+                  <div className="outcome-item" key={o}><span className="outcome-check">✓</span><span>{o}</span></div>
+                ))}
+              </div>
+            </div>
+            <div className="roadmap">
+              {roadmap.map((r) => (
+                <div className="roadmap-item" key={r.range}>
+                  <div className="roadmap-range">{r.range}</div>
+                  <div className="roadmap-verb">{r.verb}</div>
+                  <div className="roadmap-body">{r.body}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* DARK STEPS BANNER */}
+        <section style={{ paddingTop: 0 }}>
+          <div className="wrap">
+            <div className="steps-banner">
+              <div className="steps-grid">
+                <div className="balance-card">
+                  <div className="balance-top">
+                    <span className="balance-pill">Reset Progress</span>
+                    <span aria-hidden="true">◐</span>
+                  </div>
+                  <div className="balance-label">Modul terselesaikan</div>
+                  <div className="balance-value">5 / 8 modul</div>
+                  <div className="balance-actions">
+                    <div className="balance-btn">Lihat detail</div>
+                    <div className="balance-btn accent">Lanjutkan →</div>
+                  </div>
+                </div>
+                <div className="steps-copy">
+                  <span className="kicker" style={{ background: "rgba(255,255,255,0.14)", color: "var(--white)" }}>3 langkah mudah</span>
+                  <h2>Mulai Reset Keuanganmu dalam 3 Langkah</h2>
+                  <div className="steps-list">
+                    {steps3.map((s) => (
+                      <div className="step-row" key={s.title}>
+                        <div className="step-icon">{s.icon}</div>
+                        <div>
+                          <h4>{s.title}</h4>
+                          <p>{s.body}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* BONUS */}
+        <section id="bonus">
+          <div className="wrap">
+            <div className="section-head">
+              <span className="kicker soft">Bonus eksklusif</span>
+              <h2>Semua alat yang kamu perlukan ada dalam satu paket.</h2>
+            </div>
+            <div className="bonus-grid">
+              {bonuses.map((b) => (
+                <div className="bonus-card" key={b.num}>
+                  <div className="bonus-top">
+                    <div className="bonus-icon" style={{ background: `var(--tile-${b.tile})` }}>{b.num}</div>
+                    <span className="bonus-format">{b.format}</span>
+                  </div>
+                  <h3>{b.title}</h3>
+                  <p>{b.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* PACKAGE DETAILS */}
+        <section id="rincian-paket" style={{ background: "var(--cream)" }}>
+          <div className="package-section">
+            <div className="package-grid">
+              <div>
+                <span className="kicker" style={{ background: "rgba(255,255,255,0.1)", color: "var(--accent)" }}>Rincian paket</span>
+                <h2 style={{ color: "var(--white)", fontSize: "clamp(24px, 3vw, 34px)" }}>23 file siap pakai, tersusun rapi.</h2>
+                <ul className="package-list" style={{ marginTop: 24 }}>
+                  {packageContents.map((p) => (<li key={p}><span className="package-bullet" />{p}</li>))}
+                </ul>
+                <p className="package-note">Format: PDF, DOCX, XLSX, dan Google Sheets native • Ukuran A4</p>
+              </div>
+              <div className="package-visual" aria-hidden="true">
+                <div className="pv-tile" style={{ background: "var(--tile-pink)" }}><span>Workbook · PDF</span><b>Smart Financial Reset Kit</b></div>
+                <div className="pv-tile" style={{ background: "var(--tile-gold)" }}><span>Dashboard · XLSX</span><b>Cashflow &amp; Budget</b></div>
+                <div className="pv-tile" style={{ background: "var(--tile-teal)" }}><span>Tracker · DOCX</span><b>Habit Tracker 30 Hari</b></div>
+                <div className="pv-tile" style={{ background: "var(--tile-sky)" }}><span>Prompts · PDF</span><b>100 AI Prompts</b></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* EDITORIAL PHOTO */}
+        <section className="editorial-section" id="tentang">
+          <div className="wrap editorial-grid">
+            <div className="photo-frame">
+              <img src="" alt="Perempuan profesional dalam suasana hangat" loading="lazy" style={{ display: "none" }} />
+              <div className="placeholder-note">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+                  <rect x="3" y="4" width="18" height="16" rx="2" /><circle cx="9" cy="10" r="2" /><path d="M21 16l-5-5-4 4-3-3-5 5" />
+                </svg>
+                <span>Ruang untuk foto perempuan (portrait 3:4) — belum dilampirkan pada permintaan ini.</span>
+              </div>
+            </div>
+            <div>
+              <span className="kicker soft">Keuangan yang terasa manusiawi</span>
+              <h2 style={{ fontSize: "clamp(22px, 3vw, 32px)" }}>
+                Dibuat untuk perempuan yang ingin lebih tenang saat bicara soal uang.
+              </h2>
+              <p className="section-desc">
+                Smart Financial Reset Kit membantu kamu melihat kondisi keuangan dengan
+                jujur, tanpa rasa malu dan tanpa harus menjadi ahli finansial terlebih dahulu.
+              </p>
+              <p className="editorial-quote">
+                "Kejelasan finansial tidak dibangun dalam satu keputusan besar, tetapi
+                melalui langkah kecil yang terus diulang."
+              </p>
+              <a href="#penawaran" className="btn btn-primary" style={{ marginTop: 26 }} onClick={(e) => handleNavClick(e, "#penawaran")}>
+                Mulai perjalanan 30 harimu →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* OFFER / PRICING */}
+        <section className="offer-section" id="penawaran">
+          <div className="wrap offer-layout">
+            <div>
+              <span className="kicker soft">Harga</span>
+              <h2 style={{ fontSize: "clamp(24px, 3vw, 34px)" }}>Mulai dari satu langkah kecil hari ini.</h2>
+              <p className="section-desc">
+                Tidak perlu menunggu gaji naik, kondisi sempurna, atau merasa benar-benar
+                siap. Mulai dengan melihat kondisi apa adanya dan bangun sistemmu perlahan.
+              </p>
+              <div className="offer-benefits">
+                {offerBenefits.map((b) => (
+                  <div className="outcome-item" key={b}><span className="outcome-check">✓</span><span>{b}</span></div>
+                ))}
+              </div>
+            </div>
+            <div className="offer-card">
+              <span className="kicker soft">PAKET LENGKAP</span>
+              <h3>Smart Financial Reset Kit</h3>
+              <p className="offer-sub">Workbook + Dashboard + AI Toolkit + Bonus Eksklusif</p>
+              <div className="offer-price-row">
+                <div className="offer-price-label">Harga peluncuran</div>
+                <div className="offer-price-value">Segera diumumkan</div>
+              </div>
+              <a href="#faq" className="btn btn-primary" onClick={(e) => handleNavClick(e, "#faq")}>Lihat Informasi Paket →</a>
+              <p className="offer-footnote">Link checkout akan diaktifkan saat penjualan dibuka.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section id="faq">
+          <div className="wrap">
+            <div className="section-head">
+              <span className="kicker soft">FAQ</span>
+              <h2>Pertanyaan yang sering diajukan</h2>
+            </div>
+            <div className="faq-list">
+              {faqs.map((f, i) => (
+                <FaqItem key={f.q} item={f} isOpen={openFaq === i} onToggle={() => setOpenFaq(openFaq === i ? -1 : i)} />
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div className="wrap footer-bottom">
+          <span>SmartMomVestor — Smart Mom, Smart Money, Better Future</span>
+          <span>© 2026 • Materi edukasi • Keputusan tetap milik Anda</span>
+        </div>
+      </footer>
+    </div>
+  );
+}
